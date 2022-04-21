@@ -37,7 +37,6 @@ static_resources:
                   cluster: tea_service
           http_filters:
           - name: envoy.filters.http.router
-  - name: listener_1
     address:
       socket_address:
         protocol: TCP
@@ -67,13 +66,6 @@ static_resources:
                   cluster: tea_service
           http_filters:
           - name: envoy.filters.http.router
-      tls_context:
-        common_tls_context:
-          tls_certificates:
-            - certificate_chain:
-                filename: "/etc/ssl/certs/https.crt"
-              private_key:
-                filename: "/etc/ssl/certs/key.pem"
   clusters:
   - name: coffee_service
     connect_timeout: 0.25s
